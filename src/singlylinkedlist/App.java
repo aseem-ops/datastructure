@@ -37,6 +37,19 @@ public class App {
 
         singlyLinkedList.printLinkedList();
 
+        singlyLinkedList.insertAtAnyPosition(12, 3);
+
+        singlyLinkedList.insertAtAnyPosition(9999, 5);
+
+        System.out.println("--------------------");
+
+        singlyLinkedList.printLinkedList();
+
+        System.out.println("--------------------");
+        singlyLinkedList.insertAtMiddle(111111);
+
+        singlyLinkedList.printLinkedList();
+
     }
 
     public static int getLength(Node node) {

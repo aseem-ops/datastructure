@@ -26,7 +26,6 @@ public class SinglyLinkedList {
     }
 
     public void printLinkedList() {
-        Node node = new Node();
         System.out.println("Printing List from First to Last: ");
         Node current = first;
         while (current != null) {
@@ -48,6 +47,41 @@ public class SinglyLinkedList {
             last_node.data = data;
             current.next = last_node;
         }
+    }
+
+    private int getLength() {
+        int length = 0;
+        Node currentNode = first;
+        while (currentNode != null) {
+            length++;
+            currentNode = currentNode.next;
+        }
+        return length;
+    }
+
+    public void insertAtMiddle(int data) {
+        int length = getLength();
+        int middleElement = length / 2;
+
+        insertAtAnyPosition(data, middleElement);
+    }
+
+    public void insertAtAnyPosition(int data, int position) {
+        int counter = 0;
+       Node currentNode = first;
+        //Traverse to immediate previous node where we need to insert element
+        for (int i = 0; i < (position - 1); i++) {
+//            System.out.println(i);
+            currentNode = currentNode.next; //This is the previous node
+        }
+        //Create the new node initialized with data and next as null
+        Node newNode = new Node();
+        newNode.data = data;
+
+        //Start Linking the new node with next and previous node
+        newNode.next = currentNode.next; //New node next is assigned with current node next
+
+        currentNode.next = newNode; //Current Node next is assigned with new node
     }
 
 }
